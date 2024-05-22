@@ -10,5 +10,5 @@ npm run start:dev
 npm run start
 
 git add .
-git commit -m "fix disine"
+git commit -m "fix disine4"
 git push origin master
