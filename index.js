@@ -20,7 +20,9 @@ import { BookingController } from './controllers/BookingController.js';
 // import User from './models/User.js';
 
 mongoose
-   .connect(process.env.MONGODB_URI)
+   .connect(
+      'mongodb+srv://admin:12345@cluster0.g3ndpwv.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0',
+   )
    .then(() => console.log('DB ok'))
    .catch((err) => console.log('DB error', err));
 
@@ -68,31 +70,10 @@ app.patch(
 app.post('/booking', BookingController.handleBooking);
 app.get('/booking', BookingController.getAll);
 
-app.listen(process.env.PORT || 4444, (err) => {
+app.listen(4444, (err) => {
    if (err) {
       return console.log(err);
    }
 
    console.log('Server OK');
 });
-
-// app.get('/', (req, res) => {
-//    res.send('Hello World');
-// }); // если придет гет запрос вернуть хеловорлд
-
-// app.post('/auth/login', (req, res) => {
-//    console.log(req.body); // с помошью req получаем инфу
-
-//    const token = jwt.sign(
-//       {
-//          email: req.body.email,
-//          fullName: 'Хрен Моржовый',
-//       },
-//       'secret123',
-//    ); // шифрует данные
-
-//    res.json({
-//       success: true,
-//       token,
-//    });
-// }); //  если придет пост запрос вернуть сексес тру
